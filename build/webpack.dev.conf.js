@@ -15,7 +15,7 @@ const portfinder = require('portfinder');
 const HOST = process.env.HOST;
 const PORT = process.env.PORT && Number(process.env.PORT);
 
-const appData = require('../data.json');
+const appData = require('./../data.json');
 const seller = appData.seller;
 const goods = appData.goods;
 const ratings = appData.ratings;
