@@ -11,13 +11,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
+
+const HOST = process.env.HOST;
+const PORT = process.env.PORT && Number(process.env.PORT);
+
 const appData = require('../data.json');
 const seller = appData.seller;
 const goods = appData.goods;
 const ratings = appData.ratings;
+
 const apiRoutes = express.Router();
-const HOST = process.env.HOST;
-const PORT = process.env.PORT && Number(process.env.PORT);
+
 apiRoutes.get('/seller', function (req, res) {
   res.json({
     errno: 0,
@@ -37,6 +41,7 @@ apiRoutes.get('/ratings', function (req, res) {
   })
 });
 app.use('/api', apiRoutes);
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap, usePostCSS: true})

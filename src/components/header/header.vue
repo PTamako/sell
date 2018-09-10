@@ -1,13 +1,13 @@
 <template>
-    
+
 </template>
 
 <script>
-    export default {
-        name: "header"
-    }
+  export default {
+    name: "header"
+  }
 </script>
 
-<style scoped>
+<style lang="stylus" rel="stylesheet/stylus">
 
 </style>
