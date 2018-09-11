@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <router-view/>
+    <v-header></v-header>
+    <div class="tab">I am tab</div>
+    <div class="content">I am content</div>
+
   </div>
 </template>
 
 <script>
+  import VHeader from './components/header/header'
+
   export default {
-    name: 'App'
+    name: 'App',
+    components: {
+      VHeader
+    }
   }
 </script>
 
