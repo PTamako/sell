@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from './../components/content/content'
 import Goods from './../components/goods/goods'
 import Ratings from './../components/ratings/ratings'
 import Seller from './../components/seller/seller'
@@ -8,11 +7,12 @@ import Seller from './../components/seller/seller'
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass: 'is-active',
   routes: [
     {
       path: '/',
       name: 'index',
-      component: Index
+      component: Goods
     },
     {
       path: '/goods',
