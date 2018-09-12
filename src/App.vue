@@ -2,15 +2,11 @@
   <div id="app">
     <v-header></v-header>
     <div class="tab">
-      <div class="tab-item">
-        <router-link :to="{path:'/goods'}">商品</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link :to="{path:'/ratings'}">评价</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link :to="{path:'/seller'}">商家</router-link>
-      </div>
+      <ul>
+        <router-link v-for="(item,index) in Infos" :key="index"
+                     :to="{ path: item.path }" tag="li" active-class="active">{{item.name}}
+        </router-link>
+      </ul>
     </div>
     <div class="content">
       <keep-alive>
@@ -27,6 +23,27 @@
     name: 'App',
     components: {
       VHeader
+    },
+    data() {
+      return {
+        Infos: [
+          {
+            name: "商品",
+            path: 'goods',
+            active: false
+          },
+          {
+            name: "评价",
+            path: 'ratings',
+            active: false
+          },
+          {
+            name: "商家",
+            path: 'seller',
+            active: false
+          }
+        ]
+      }
     }
   }
 </script>
@@ -38,13 +55,14 @@
       width: 100%
       height: 40px
       line-height: 40px
-      .tab-item
-        flex: 1
-        text-align: center
-        & > a
-          display block
-          font-size 14px
-          color: rgb(77, 85, 93)
-          &.is-active
+      ul
+        display: flex
+        width: 100%
+        height: 40px
+        line-height: 40px
+        li
+          flex: 1
+          text-align: center
+          &.active
             color: rgb(240, 20, 20)
 </style>
