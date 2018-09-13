@@ -42,8 +42,9 @@
             path: 'seller',
             active: false
           }
-        ]
-      }
+        ],
+        seller: {}
+      };
     }
   }
 </script>
