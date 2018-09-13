@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-header></v-header>
-    <div class="tab">
+    <div class="tab border-1px">
       <ul>
         <router-link v-for="(item,index) in Infos" :key="index"
                      :to="{ path: item.path }" tag="li" active-class="active">{{item.name}}
