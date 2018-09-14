@@ -45,7 +45,8 @@
         ],
         seller: {}
       };
-    }
+    },
+    methods: {},
   }
 </script>
 
