@@ -17,7 +17,7 @@
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
-      <div v-if="seller.supports" class="support-count">
+      <div v-if="seller.supports" class="support-count" @click="">
         <span class="count">{{seller.supports.length}}个</span>
         <i class="icon-keyboard_arrow_right"></i>
       </div>
@@ -25,6 +25,9 @@
     <div class="bullentin-wrapper">
       <span class="bullentin-title"></span><span class="bullentin-text">{{seller.bulletin}}</span>
       <i class="icon-keyboard_arrow_right"></i>
+    </div>
+    <div class="background">
+      <img :src="seller.avatar" width="100%" height="100%">
     </div>
   </div>
 </template>
@@ -47,8 +50,10 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "./../../common/stylus/mixin.styl"
   .header
+    position relative
+    overflow hidden
     color: #fff
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(7, 17, 27, .5);
     .content-wrapper
       position relative
       padding 24px 12px 18px 24px
@@ -122,7 +127,8 @@
           font-size 12px
 
     .bullentin-wrapper
-      background-color: rgba(0, 0, 0, .2)
+      position relative
+      background-color: rgba(7, 17, 27, .2)
       line-height 28px
       height: 28px
       white-space nowrap
@@ -130,6 +136,8 @@
       text-overflow ellipsis
       padding 0 22px 0 12px
       .bullentin-title
+        vertical-align top
+        margin-top 7px
         display inline-block
         bg-image('bulletin')
         width: 22px
@@ -137,6 +145,20 @@
         background-size 22px 12px
         background-repeat no-repeat
       .bullentin-text
+        vertical-align top
         margin 0 4px
         font-size 12px
+      .icon-keyboard_arrow_right
+        position absolute
+        right: 12px
+        top: 8px
+        font-size: 12px
+    .background
+      position absolute
+      left 0
+      top: 0
+      width 100%
+      height 100%
+      z-index -1
+      filter: blur(10px)
 </style>
