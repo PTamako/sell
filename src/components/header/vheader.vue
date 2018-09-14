@@ -13,9 +13,13 @@
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
         <div class="support" v-if="seller.supports">
-          <span class="icon"></span>
-          <span class="text">{{seller.supports[0].description}}</span>
+          <span class="icon" :class="classMap[seller.supports[2].type]"></span>
+          <span class="text">{{seller.supports[2].description}}</span>
         </div>
+      </div>
+      <div v-if="seller.supports" class="support-count">
+        <span class="count">{{seller.supports.length}}个</span>
+        <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
     <div class="bullentin-wrapper"></div>
@@ -30,6 +34,9 @@
         type: Object,
         default: null
       }
+    },
+    created() {
+      this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
     }
   }
 </script>
@@ -38,8 +45,9 @@
   @import "./../../common/stylus/mixin.styl"
   .header
     color: #fff
-    background #7e8c8d
+    background-color: rgba(0, 0, 0, .5);
     .content-wrapper
+      position relative
       padding 24px 12px 18px 24px
       font-size 0
       .avatar
@@ -72,15 +80,42 @@
           font-size 14px
           line-height 14px
         .support
-          font-size 12px
           line-height 12px
+          font-size 12px
           .icon
+            display inline-block
+            vertical-align top
             height 12px
             width 12px
             margin-right 4px
             background-size 12px 12px
             background-repeat no-repeat
-            display inline-block
             &.decrease
               bg-image('decrease_1')
+            &.discount
+              bg-image('discount_1')
+            &.guarantee
+              bg-image('guarantee_1')
+            &.invoice
+              bg-image('invoice_1')
+            &.special
+              bg-image('special_1')
+      .support-count
+        right: 12px
+        bottom: 14px
+        padding 2px 8px
+        height: 24px
+        line-height: 24px
+        position absolute
+        border-radius 14px
+        background-color: rgba(0, 0, 0, .2)
+        text-align center
+        .count
+          vertical-align top
+          font-size 12px
+        .icon-keyboard_arrow_right
+          margin-left 2px
+          line-height 24px
+          font-size 12px
+
 </style>
