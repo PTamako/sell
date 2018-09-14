@@ -1,15 +1,51 @@
 <template>
-<div class="header">
-  我是头部
-</div>
+  <div class="header">
+    <div class="content-wrapper">
+      <div class="avatar">
+        <img width="64" height="64" :src="seller.avatar" alt="">
+      </div>
+      <div class="content">
+        <div class="title">
+          <span class="brand"></span>
+          <span class="name">{{seller.name}}</span>
+        </div>
+        <div class="description">
+          {{seller.description}}/{{seller.deliveryTime}}分钟送达
+        </div>
+        <div class="support" v-if="seller.supports">
+          <span class="icon"></span>
+          <span class="text">{{seller.supports[0].description}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="bullentin-wrapper"></div>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-    name: "header"
+    name: "header",
+    props: {
+      seller: {
+        type: Object,
+        default: null
+      }
+    }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
+  .header
+    color: #fff
+    background #7e8c8d
+    .content-wrapper
+      padding: 24px 12px 18px 24px
+      font-size 0
+      .avatar
+        display: inline-block
+        font-size 14px
+      .content
+        display: inline-block
+        margin-left 16px
+        font-size 14px
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab border-1px">
       <ul>
         <router-link v-for="(item,index) in Infos" :key="index"
@@ -19,6 +19,7 @@
 <script>
   import VHeader from './components/header/vheader'
 
+  const ERR_OK = 0;
   export default {
     name: 'App',
     components: {
@@ -47,6 +48,16 @@
       };
     },
     methods: {},
+    created() {
+      this.$http.get('/api/seller')
+        .then((res) => {
+          res = res.body;
+          if (res.errno === ERR_OK) {
+            this.seller = res.data;
+            console.log(this.seller)
+          }
+        })
+    },
   }
 </script>
 
