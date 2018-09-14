@@ -23,8 +23,7 @@
       </div>
     </div>
     <div class="bullentin-wrapper">
-      <span class="bullentin-title"></span>
-      <span class="bullentin-text">{{seller.bulletin}}</span>
+      <span class="bullentin-title"></span><span class="bullentin-text">{{seller.bulletin}}</span>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
   </div>
@@ -130,5 +129,14 @@
       overflow hidden
       text-overflow ellipsis
       padding 0 22px 0 12px
-
+      .bullentin-title
+        display inline-block
+        bg-image('bulletin')
+        width: 22px
+        height: 12px
+        background-size 22px 12px
+        background-repeat no-repeat
+      .bullentin-text
+        margin 0 4px
+        font-size 12px
 </style>
