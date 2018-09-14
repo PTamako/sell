@@ -13,8 +13,8 @@
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
         <div class="support" v-if="seller.supports">
-          <span class="icon" :class="classMap[seller.supports[2].type]"></span>
-          <span class="text">{{seller.supports[2].description}}</span>
+          <span class="icon" :class="classMap[seller.supports[0].type]"></span>
+          <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
       <div v-if="seller.supports" class="support-count">
@@ -22,7 +22,11 @@
         <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
-    <div class="bullentin-wrapper"></div>
+    <div class="bullentin-wrapper">
+      <span class="bullentin-title"></span>
+      <span class="bullentin-text">{{seller.bulletin}}</span>
+      <i class="icon-keyboard_arrow_right"></i>
+    </div>
   </div>
 </template>
 
@@ -117,5 +121,14 @@
           margin-left 2px
           line-height 24px
           font-size 12px
+
+    .bullentin-wrapper
+      background-color: rgba(0, 0, 0, .2)
+      line-height 28px
+      height: 28px
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+      padding 0 22px 0 12px
 
 </style>
