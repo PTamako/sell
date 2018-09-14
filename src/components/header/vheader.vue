@@ -69,9 +69,18 @@
             font-weight bold
         .description
           margin-bottom 10px
-          font-size 12px
-          line-height 12px
+          font-size 14px
+          line-height 14px
         .support
           font-size 12px
           line-height 12px
+          .icon
+            height 12px
+            width 12px
+            margin-right 4px
+            background-size 12px 12px
+            background-repeat no-repeat
+            display inline-block
+            &.decrease
+              bg-image('decrease_1')
 </style>
