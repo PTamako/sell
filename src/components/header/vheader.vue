@@ -137,7 +137,7 @@
       padding 0 22px 0 12px
       .bullentin-title
         vertical-align top
-        margin-top 7px
+        margin-top 8px
         display inline-block
         bg-image('bulletin')
         width: 22px
