@@ -13,6 +13,17 @@ body, html
     clear both
     visibility hidden
 
+.fade-enter-active, .fade-leave-active
+  -webkit-transition: all 0.5s ease
+  -moz-transition: all 0.5s ease
+  -ms-transition: all 0.5s ease
+  -o-transition: all 0.5s ease
+  transition: all 0.5s ease
+
+.fade-enter, .fade-leave-active
+  opacity 0
+  background rgba(7, 17, 27, 0)
+
 @media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)
   .border-1px
     &::after
