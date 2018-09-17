@@ -33,6 +33,7 @@
       <div class="detail-wrapper clearfix">
         <div class="detail-main">
           <h1 class="name">{{seller.name}}</h1>
+          <star :size="48" :score="seller.score"></star>
         </div>
       </div>
       <div class="detail-close" @click="closeDetail">
@@ -43,12 +44,17 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import star from './../../components/star/star'
+
   export default {
     name: "header",
     data() {
       return {
         detailShow: false
       }
+    },
+    components: {
+      star
     },
     methods: {
       showDetail() {
