@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import VHeader from './components/header/vheader'
+  import VHeader from './components/vheader/vheader'
 
   const ERR_OK = 0;
   export default {
@@ -54,6 +54,7 @@
           res = res.body;
           if (res.errno === ERR_OK) {
             this.seller = res.data;
+            console.log(this.seller)
           }
         })
     },
