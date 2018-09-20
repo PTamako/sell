@@ -27,8 +27,8 @@
                   <span>好评率{{food.rating}}%</span>
                 </div>
                 <div class="price">
-                  <span>¥{{food.price}}</span>
-                  <span v-show="food.oldPrice">¥{{food.oldPrice}}</span>
+                  <span class="now">¥{{food.price}}</span>
+                  <span v-show="food.oldPrice" class="old">¥{{food.oldPrice}}</span>
                 </div>
               </div>
             </li>
@@ -57,7 +57,9 @@
           res = res.body;
           if (res.errno === ERR_OK) {
             this.goods = res.data;
-            this._initScroll();
+            this.$nextTick(() => {
+              this._initScroll();
+            });
           }
         })
     },
@@ -152,6 +154,7 @@
             color rgb(147, 153, 159)
           .desc
             margin-bottom 8px
+            line-height 12px
           .extra
             &.count
               margin-right 12px
