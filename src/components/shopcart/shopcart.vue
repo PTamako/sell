@@ -1,6 +1,17 @@
 <template>
   <div class="shopcart">
-
+    <div class="content">
+      <div class="content-left">
+        <div class="logo-wrapper">
+          <div class="logo">
+            <div class="icon-shopping_cart"></div>
+          </div>
+        </div>
+        <div class="price"></div>
+        <div class="desc"></div>
+      </div>
+      <div class="content-right"></div>
+    </div>
   </div>
 </template>
 
@@ -11,5 +22,29 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  .shopcart
+    position fixed
+    left 0
+    bottom 0
+    width: 100%
+    height: 48px
+    z-index 50
+    .content
+      display flex
+      background: #141d27
+      font-size 0
+      .content-left
+        flex 1
+        .logo-wrapper
+          display inline-block
+          position relative
+          top -10px
 
+        .price
+          display inline-block
+        .desc
+          display inline-block
+      .content-right
+        flex 0 0 105px
+        width 105px
 </style>
