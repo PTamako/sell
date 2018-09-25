@@ -6,7 +6,7 @@
           <div class="logo" :class="{'highlight':totalCount > 0}">
             <i class="icon-shopping_cart" :class="{'highlight':totalCount > 0}"></i>
           </div>
-          <div class="num">{{totalCount}}</div>
+          <div class="num" v-show="totalCount>0">{{totalCount}}</div>
         </div>
         <div class="price" :class="{'highlight':totalPrice > 0}">¥ {{totalPrice}}元</div>
         <div class="desc">另需配送费 ¥ {{deliveryPrice}}元</div>
@@ -28,10 +28,10 @@
         type: Array,
         default() {
           return [
-            {
-              price: 10,
-              count: 1
-            }
+            // {
+            //   price: 10,
+            //   count: 1
+            // }
           ];
         }
       },
