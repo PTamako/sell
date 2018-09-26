@@ -55,11 +55,11 @@
       &.move-transition
         opacity 1
         transform translate3d(0, 0, 0)
-        .inner
-          display inline-block
-          line-height 24px
-          font-size 24px
-          color: rgb(0, 160, 220)
+      .inner
+        display inline-block
+        line-height 24px
+        font-size 24px
+        color: rgb(0, 160, 220)
     .cart-count
       display: inline-block
       font-size 12px
