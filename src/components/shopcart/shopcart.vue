@@ -70,7 +70,7 @@
         }
       },
       payClass() {
-        if (this.totalPrice > this.minPrice) {
+        if (this.totalPrice >= this.minPrice) {
           return 'highlight';
         }
       }
