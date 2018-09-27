@@ -33,6 +33,7 @@
         } else {
           this.food.count++;
         }
+        this.$emit('cart-add', event.target);
       },
       decreaseCart(event) {
         if (!event._constructed) {
@@ -52,14 +53,14 @@
     .cart-decrease
       display: inline-block
       padding: 6px
-      &.move-transition
-        opacity 1
-        transform translate3d(0, 0, 0)
       .inner
         display inline-block
         line-height 24px
         font-size 24px
         color: rgb(0, 160, 220)
+        transition all 0.3s linear
+        transform rotate(0)
+
     .cart-count
       display: inline-block
       font-size 12px
