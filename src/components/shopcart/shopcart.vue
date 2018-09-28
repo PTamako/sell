@@ -29,6 +29,22 @@
         </transition>
       </div>
     </div>
+    <div class="shopcart-list" v-show="listShow">
+      <div class="list-header">
+        <h1 class="title">购物车</h1>
+        <span class="empty">清空</span>
+      </div>
+      <div class="list-content">
+        <ul>
+          <li v-for="food in selectFoods" class="food">
+            <sapn class="name">{{food.name}}</sapn>
+            <div class="price">
+              <span>¥{{food.price*food.count}}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
