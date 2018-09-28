@@ -39,7 +39,10 @@
           <li v-for="food in selectFoods" class="food">
             <sapn class="name">{{food.name}}</sapn>
             <div class="price">
-              <span>¥{{food.price*food.count}}</span>
+              <span>¥ {{food.price*food.count}}</span>
+            </div>
+            <div class="cartcontrol-wrapper">
+              <cartcontrol :food="food"></cartcontrol>
             </div>
           </li>
         </ul>
@@ -49,8 +52,13 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import cartcontrol from './../cartcontrol/cartcontrol'
+
   export default {
     name: "shopcart",
+    components: {
+      cartcontrol
+    },
     props: {
       selectFoods: {
         type: Array,
