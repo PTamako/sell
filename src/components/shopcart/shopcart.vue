@@ -52,7 +52,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import cartcontrol from './../cartcontrol/cartcontrol'
+  import cartcontrol from './../../components/cartcontrol/cartcontrol'
 
   export default {
     name: "shopcart",
