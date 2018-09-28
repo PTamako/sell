@@ -58,9 +58,6 @@
         line-height 24px
         font-size 24px
         color: rgb(0, 160, 220)
-        transition all 0.3s linear
-        transform rotate(0)
-
     .cart-count
       display: inline-block
       font-size 12px
