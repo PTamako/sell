@@ -33,9 +33,9 @@
       <div class="shopcart-list" v-show="listShow">
         <div class="list-header">
           <h1 class="title">购物车</h1>
-          <span class="empty">清空</span>
+          <span class="empty" @click="empty">清空</span>
         </div>
-        <div class="list-content" ref="list-content">
+        <div class="list-content" ref="listContent">
           <ul>
             <li v-for="food in selectFoods" class="food">
               <span class="name">{{food.name}}</span>
@@ -55,6 +55,7 @@
 
 <script type="text/ecmascript-6">
   import cartcontrol from './../../components/cartcontrol/cartcontrol'
+  import BScroll from 'better-scroll'
 
   export default {
     name: "shopcart",
@@ -112,6 +113,17 @@
           return false;
         }
         let show = !this.fold;
+        if (show) {
+          this.$nextTick(() => {
+            if (!this.scroll) {
+              this.scroll = new BScroll(this.$refs.listContent, {
+                click: true
+              });
+            } else {
+              this.scroll.refresh();
+            }
+          });
+        }
         return show;
       },
       totalPrice() {
@@ -145,6 +157,11 @@
       }
     },
     methods: {
+      empty() {
+        this.selectFoods.forEach((food) => {
+          food.count = 0;
+        })
+      },
       toggleList() {
         if (!this.totalCount) {
           return;
@@ -341,4 +358,20 @@
           padding: 12px 0
           box-sizing border-box
           border-1px(rgba(7, 17, 27, .1))
+          .name
+            line-height: 24px
+            font-size: 14px
+            color: rgb(7, 17, 27)
+          .price
+            position: absolute
+            right: 90px
+            bottom 12px
+            line-height: 24px
+            font-size 14px
+            font-weight 700
+            color rgb(240, 20, 20)
+          .cartcontrol-wrapper
+            position absolute
+            right 0
+            bottom 6px
 </style>
