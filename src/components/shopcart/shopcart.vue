@@ -12,7 +12,7 @@
           <div class="price" :class="{'highlight':totalPrice > 0}">¥ {{totalPrice}}元</div>
           <div class="desc">另需配送费 ¥ {{deliveryPrice}}元</div>
         </div>
-        <div class="content-right">
+        <div class="content-right" @click="pay">
           <div class="pay" :class="payClass">
             {{payDesc}}
           </div>
@@ -53,7 +53,7 @@
       </transition>
     </div>
     <transition name="fade">
-      <div class="list-mask" v-show="listShow">
+      <div class="list-mask" v-show="listShow" @click="hideList">
 
       </div>
     </transition>
@@ -174,6 +174,16 @@
           return;
         } else {
           this.fold = !this.fold
+        }
+      },
+      hideList() {
+        this.fold = true;
+      },
+      pay() {
+        if (this.totalPrice < this.minPrice) {
+          return;
+        } else {
+          window.alert('支付' + this.totalPrice + '元')
         }
       },
       drop(el) {
@@ -388,5 +398,13 @@
     left: 0
     width: 100%
     height: 100%
+    backdrop-filter blur(20px)
     z-index 40
+    opacity 1
+    background: rgba(7, 17, 27, .7)
+    &.fade-enter-active, &.fade-leave-active //动画运行状态
+      transition: all 0.5s
+    &.fade-enter, &.fade-leave-active //动画开始，结束状态
+      opacity 0
+      background: rgba(7, 17, 17, 0)
 </style>
