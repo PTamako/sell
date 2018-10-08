@@ -4,7 +4,7 @@
       <div class="food-content">
         <div class="image-header">
           <img :src="food.image">
-          <div>
+          <div class="back">
             <i class="icon-arrow_lift"></i>
           </div>
         </div>
@@ -59,5 +59,6 @@
         left: 0
         width: 100%
         height: 100%
-      .background
+      .back
+        width: 100%
 </style>
