@@ -19,6 +19,9 @@
             <span class="old" v-show="food.oldPrice">¥{{food.oldPrice}}</span>
           </div>
         </div>
+        <div class="cartcontrol-wrapper">
+
+        </div>
       </div>
     </div>
   </transition>
