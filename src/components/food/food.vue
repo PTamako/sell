@@ -30,6 +30,10 @@
           <h1 class="title">商品信息</h1>
           <p class="text">{{food.info}}</p>
         </div>
+        <split v-show="food.ratings"></split>
+        <div class="ratings" v-show="food.ratings">
+          <h1 class="title">商品评价</h1>
+        </div>
       </div>
     </div>
   </transition>
@@ -168,11 +172,16 @@
           transition all 0.3s linear
         &.fade-enter, &.fade-leave-activity
           opacity: 0
-    .info
+    .info, .ratings
       padding: 18px
       .title
         line-height 14px
         margin-bottom 6px
         font-size 14px
+        color: rgb(7, 17, 27)
+      .text
+        line-height 24px
+        padding: 0 8px
+        font-size 12px
         color: rgb(77, 85, 93)
 </style>
