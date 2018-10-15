@@ -17,67 +17,75 @@
 </template>
 
 <script>
-  import VHeader from './components/vheader/vheader'
+import VHeader from "./components/vheader/vheader";
 
-  const ERR_OK = 0;
-  export default {
-    name: 'App',
-    components: {
-      VHeader
-    },
-    data() {
-      return {
-        Infos: [
-          {
-            name: "商品",
-            path: 'goods',
-            active: false
-          },
-          {
-            name: "评价",
-            path: 'ratings',
-            active: false
-          },
-          {
-            name: "商家",
-            path: 'seller',
-            active: false
-          }
-        ],
-        seller: {}
-      };
-    },
-    methods: {},
-    created() {
-      this.$http.get('/api/seller')
-        .then((res) => {
-          res = res.body;
-          if (res.errno === ERR_OK) {
-            this.seller = res.data;
-            console.log(this.seller)
-          }
-        })
-    },
+const ERR_OK = 0;
+export default {
+  name: "App",
+  components: {
+    VHeader
+  },
+  data() {
+    return {
+      Infos: [
+        {
+          name: "商品",
+          path: "goods",
+          active: false
+        },
+        {
+          name: "评价",
+          path: "ratings",
+          active: false
+        },
+        {
+          name: "商家",
+          path: "seller",
+          active: false
+        }
+      ],
+      seller: {}
+    };
+  },
+  methods: {},
+  created() {
+    this.$http.get("/api/seller").then(res => {
+      res = res.body;
+      if (res.errno === ERR_OK) {
+        this.seller = res.data;
+        console.log(this.seller);
+      }
+    });
   }
+};
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "./common/stylus/mixin.styl"
-  #app
-    .tab
-      display: flex
-      width: 100%
-      height: 40px
-      line-height: 40px
-      ul
-        display: flex
-        width: 100%
-        height: 40px
-        line-height: 40px
-        border-1px(rgba(7, 17, 27, .1))
-        li
-          flex: 1
-          text-align: center
-          &.active
-            color: rgb(240, 20, 20)
+@import './common/stylus/mixin.styl';
+
+#app {
+  .tab {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+
+    ul {
+      display: flex;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      border-1px(rgba(7, 17, 27, 0.1));
+
+      li {
+        flex: 1;
+        text-align: center;
+
+        &.active {
+          color: rgb(240, 20, 20);
+        }
+      }
+    }
+  }
+}
 </style>
